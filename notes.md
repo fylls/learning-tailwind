@@ -240,6 +240,252 @@ class="bg-secondary-100 text-secondary-200"
 
 
 
+# flexbox
+
+fleitem a& flecontainer
+
+<div class="flex justify-end">
+    <p>text1</p>
+    <p class="ml-2" >text2</p>
+</div>
+
+flex justify-center
+flex justify-start # default
+flex justify-between
+flex justify-around
+flex justify-evenly
+
+h-4 w-6
+
+
+ blocks stack one on top of another
+
+<div class="">
+    <div class="bg-red-500 h-4 w-6"></div>
+    <div class="bg-blue-500 h-8 w-6"></div>
+    <div class="bg-gree-500 h-12 w-6"></div>
+</div>
+
+block all stacked horizzonatally - alligned to the start of the component
+they sit nexxxt to each other
+
+<div class="flex">
+    <div class="bg-red-500 h-4 w-6"></div>
+    <div class="bg-blue-500 h-8 w-6"></div>
+    <div class="bg-gree-500 h-12 w-6"></div>
+</div>
+
+
+<div class="flex item-center">
+    <div class="bg-red-500 h-4 w-6"></div>
+    <div class="bg-blue-500 h-8 w-6"></div>
+    <div class="bg-gree-500 h-12 w-6"></div>
+</div>
+
+item-start item-end item-center allign on XXX
+
+jjustify-center allign of Y
+
+
+# responsive classes
+
+media queries?
+
+normally when we're
+creating mobile designs we'd use media
+queries in our CSS file to style things
+differently at different screen sizes
+right now intel wind we don't have to
+manually create any media queries at all
+we can just prefix our tailwind classes
+with responsive classes and then that
+class would only apply to that screen
+size and up now the responsive classes
+are these right here SM MD LG and Excel
+so if we prefix a class with SM it means
+okay only target things from small
+screens and up if we prefix it with MD
+only target that class from medium-sized
+screens and up now all of these
+breakpoints that they use are min-width
+which means this is a mobile first
+approach so by default all classes that
+you apply to an element will apply at
+all widths including the smallest screen
+sizes but then when we prefix them with
+one of these things right here then
+those classes would only apply for that
+device width and oh 
+
+
+mobile first approach
+
+
+text-green-500 sm:text-red-500  lg: text-blue-500
+
+flex justify-center md:justify-end
+
+
+# cards
+
+custom card component
+
+rounded overflow-hidden shadow-md
+
+w-full fully contain width of its parent
+objejct-cover # take out image distortion, image zooms in
+
+<div class="rounded bg-white border-gray-200 shadow-md overflow-hidden"> 
+            <img src="img/stew.jpg" alt="stew" class="h-32 sm:h-48 w-full object-cover">
+            <div class="m-4">
+              <span class="font-bold">5 Bean Chili Stew</span>
+              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+            </div>
+          </div>
+        </div>
+
+
+# badges
+
+bg-secondaty-100 text-secondaty-200 text-xs uppercase font-bold rounded-full
+
+
+position at the top? absolutely
+
+relarive in parent
+absolute in child
+
+<div class="mt-8">
+          <!-- cards go here -->
+          <div class="rounded bg-white border-gray-200 shadow-md overflow-hidden relative"> 
+            <img src="img/stew.jpg" alt="stew" class="h-32 sm:h-48 w-full object-cover">
+            <div class="m-4">
+              <span class="font-bold">5 Bean Chili Stew</span>
+              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+            </div>
+            <div class="absolute top-0 ml-2 mt-2 p-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full">
+              <span>25 mins</span>
+            </div>
+          </div>
+        </div>
+
+
+# apply directive
+
+
+if we wanted to
+make multiple cards or multiple budgets
+we'd have to use all of these classes on
+each one we created now imagine as well
+if we wanted to change the style of a
+card then we'd have to change it in
+every place that we have a card and the
+same would be true for badges so that's
+not a great idea and it's also looking a
+bit messy as well so instead it would be
+nice if we could extract these different
+classes into an external selector using
+some nifty tailoring syntax and we can
+do
+
+
+ow anything with a class of card
+is going to look at that and it's going
+to apply all of these classes to it so
+all I need to do now is give this a
+class of card and we have a reusable
+component which we only have to update
+over here and not in every place we
+create a card now that's a bit better
+and it's also much tidier - it becomes
+much more reusable
+
+```CSS
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card{
+  @apply rounded bg-white border-gray-200 shadow-md overflow-hidden relative;
+}
+
+.badge{
+  @apply absolute top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full;
+}
+© 2021 GitHub, Inc.
+```
+
+# grids
+
+parent grid grid-col-3 gap-10
+
+col-span-1
+col-span-2
+
+
+# buttons
+
+.btn{
+  @apply rounded-full py-2 px-3 uppercase text-xs font-bold tracking-wider cursor-pointer;
+}
+
+# icons
+
+tailwind itself doesn't actually come
+with any icons built into it we have to
+use some kind of external library or
+your own SVG's you can use whichever you
+prefer now I'm going to use something
+called hero icons which is really nice
+it gives us all of these different icons
+right here and all we have to do is
+click on one for example and it copies
+the SVG code for that particular icon
+and then our willing to do is come to
+the HTML and if I paste this in now oops
+let me just paste it we can see this
+thing right here this SVG so when we
+clicked on this icon it copied the SVG
+code for us and we've pasted it in right
+here now if I save that and preview we
+
+
+# hover effe ts
+only for hovering applyu this
+only for medium sceens and uo apply this
+hover:
+
+shadow-inner
+
+div class="flex justify-center md:justify-end">
+        <a href="#" class="btn text-primary border-primary md:border-2 hover:bg-primary hover:text-white">Log in</a>
+        <a href="#" class="btn text-primary ml-2 border-primary md:border-2 hover:bg-primary hover:text-white">Sign up</a>
+      </div>
+
+# responsive nav
+
+cursor-pointer
+md:hidden
+
+flex justify-betwee item-center
+
+
+hidden md:block
+
+don't show for small screens
+
+# transitions
+
+from initial to hover state
+
+transition wha kin of weasying function dio yu want to use?
+
+transition ease-out durration-500
+
+
+transform hover:scale-125 hover:ng-opacity-50  transition ease-out durtation-300
 
 
 
