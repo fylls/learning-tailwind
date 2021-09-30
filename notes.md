@@ -1,5 +1,6 @@
-``` HTML
+## Base HTML
 
+``` HTML
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -80,137 +81,113 @@
 
 ```
 
-Class
-Properties
-text-xs	font-size: 0.75rem;
-line-height: 1rem;
+---
 
-text-gray-800
-text-6xl
+## Text & Font
 
-font-bold
-font-light
+```HTML
+<tag class="class properties"></tag>
+```
 
-uppercase
-lowercase
+`.text-xs`	
+`.text-gray-800`
+`.text-6xl`
 
+`.font-bold`
+`.font-light`
 
-# margin paffng borders
+`.uppercase`
+`.lowercase`
 
-.p-0
-.p-4 (1rem)
+---
 
-.py-0 top and bottom
+## Margin, Padding  & Borders
 
-.p left and right
+**padding**
 
-.pt
-.pb
-.pr
-.pl
+`.p-0`
+`.p-4 `
 
-same for margin
+top and bottom
+`.py-10 `
 
-.mt
-.mb
-.mr
-.ml
+left and right
+`.px-10`
 
-.border-0
-.border-8 (piel)
+`.pt` - top
+`.pb` - bottom
+`.pr` - right
+`.pl` - left
 
-.border-t-8
-.border-b-8
-.border-r-8
-.border-l-8
+<br>
 
-border-b-gray-200
+same for **margin**
 
-# tailwind config file
+`.mt` - top
+`.mb` - bottom
+`.mr` - right
+`.ml` - left
 
- when tell when
-processes our sauce CSS file it uses a
-default configuration to do that under
-the hood now this configuration dictates
-the values of properties controlled by
-different classes that we use in our
-HTML
+<br>
 
+**border**
 
-for example it would say that the
-text - SM class would give a font size
-of 0.875 Rams or text Excel would be a
-font size of 1.25 rome's it would also
-say things like the color red - 500
-should be a specific hex code etc 
+`.border-0`
+`.border-8 `
 
-we
-can also create our own Tailwind config
-file to either extend those rules or add
-extra classes for colors or fonts or
-spacing or anything else or to change
-the current ones as well 
+`.border-t-8`
+`.border-b-8`
+`.border-r-8`
+`.border-l-8`
 
+`border-b-gray-200`
 
-hat this extra flag does
-is create as a config file with all of
-the default values that tailwind uses
-under the hood included in it 
+---
 
+## Tailwind Config File
 
-npx tailwindcss init --full
+when Tailwind processes our sauce CSS file it uses a default configuration to do that under the hood now this configuration dictate the values of properties controlled by different classes that we use in our HTML
 
-tailwind.config
+for example it would say that the `text-sm` class would give a `font-size: 0.875ram` or `text-xl` would be a `font-size: 1.25ram` it would also say things like the color red -500 should be a specific hex code etc 
 
-if we wanted to we could change
-these values right here and then if we
-were to use that class it would change
-how it looks
-dependent on the value that we pass
-through here because when we then use
-tailwind to process our CSS it will look
-for the values and match them up okay so
-if we wanted to we could also add new
-properties 
+we can also create our own Tailwind config file to either extend those rules or add extra classes for colors or fonts or spacing or anything else or to change the current ones as well 
 
-
-reprocess file base on new config
-
-
-doesn't matter that there wasn't one
-there before we never used to have this
-config file when we don't have one it
-just uses all of these default Styles
-under the hood without this file even
-being there but now we have one it's
-gonna look for it and it's going to
-apply all of these different values
-including our new one s
-
-
-npm run build-css
-
-
-I wouldn't recommend changing values
-inside the default config setup if you
-do this it's hard to see what values
-you've actually changed and what new
-values you've added and therefore it's
-going to be tough to distinguish between
-the default values already there and
-your own so instead we should create a
-blank config file to extend the default
-rules and that way we're not altering
-the core values and it's easier to see
-which extra values we've added ourselves
-as well 
-
-
-new blank config file
-
+```bash
 npx tailwindcss init
+```
 
-extend the themethat tailwind is using
+the created file will be called `tailwind.config.js`
+
+---
+
+## Tailwind FULL Config File
+
+this extra flag creates a config file with all of the default values that tailwind uses under the hood included in it 
+
+```bash
+npx tailwindcss init --full
+```
+
+if we wanted to we could change these values right here and then if we were to use that class it would change how it looks dependent on the value that we pass through here because when we then use tailwind to process our CSS it will look for the values and match them up okay so if we wanted to we could also add new properties 
+
+"reprocess file base on new config"
+
+doesn't matter that there wasn't one there before we never used to have this config file when we don't have one it just uses all of these default Styles under the hood without this file even being there but now we have one it's gonna look for it and it's going to apply all of these different values including our new one
+
+```bash
+npm run build-css
+```
+
+I wouldn't recommend changing values inside the default config setup if you do this it's hard to see what values you've actually changed and what new values you've added and therefore it's going to be tough to distinguish between the default values already there and your own so instead we should create a blank config file to extend the default rules and that way we're not altering the core values and it's easier to see which extra values we've added ourselves as well 
+
+run this command for a blank config file
+```bash
+npx tailwindcss init
+```
+
+---
+
+## Example of "tailwind.config.js"
 
 ```JAVASCRIPT
 module.exports = {
@@ -234,171 +211,158 @@ module.exports = {
 }
 ```
 
-now i can
-class="text-primary"
-class="bg-secondary-100 text-secondary-200"
+now i can type this in my HTML and it will be translated correctly, also the helper for VScode will suggest our own custom styles.
 
+```HTML
+<div class="text-primary">
+<div class="bg-secondary-100 text-secondary-200">
+```
 
+---
 
-# flexbox
+## Flexbox
 
-fleitem a& flecontainer
+flexbox is just a new CSS display type which is designed to help us craft those CSS layouts much much easier so basically i lets us control the position of elements the size of them and the spacing of them relative to their parent container elements and each other and it also works great responsively too. Some of the benefits of using flexbox are that we can create navigation bars and menus really easily without having to use floats or worrying about polluting elements 
 
+would be wrong of me not to mention that flexbox is not fully supported out of the box in every single browser and you're going to find that a lot of the problems are in IE like this right here and it tells you all these problems down here so if you're going to use flexbox then you want to provide for back options for those browsers which don't support it now one way we can do that is by using `moderniser`.
+
+`moderniser` is a really cool javascript library and basically it just detects which browser the user is viewing your website on so say you're using flexbox in your website now if a user visits that on an IE browser which doesn't support flexbox then moderniser is going to say hey and no you don't support this so add a class into the body tag on your web page then we can use that class to create specific styles in our CSS for just that browser so I just thought I'd warn you about that I'm not going to be using moderniser in this tutorial series I'm going to be using Chrome which works pretty well with flexbox as is I just wanted to kind of include this in case you're using Internet Explorer or some other browser which does not fully support it.
+
+---
+
+flex-item (child) & flex-container (parent)
+
+```HTML
 <div class="flex justify-end">
     <p>text1</p>
     <p class="ml-2" >text2</p>
 </div>
+```
 
-flex justify-center
-flex justify-start # default
-flex justify-between
-flex justify-around
-flex justify-evenly
+`flex justify-center`
+`flex justify-start`
+`flex justify-end`
+`flex justify-between`
+`flex justify-around`
+`flex justify-evenly`
 
-h-4 w-6
+`h-4 w-6`
 
+h = height
+w = width
 
- blocks stack one on top of another
+---
 
+## Flexbox Example #1
+
+blocks stack one on top of one another
+
+```HTML
 <div class="">
     <div class="bg-red-500 h-4 w-6"></div>
     <div class="bg-blue-500 h-8 w-6"></div>
     <div class="bg-gree-500 h-12 w-6"></div>
 </div>
+```
 
-block all stacked horizzonatally - alligned to the start of the component
-they sit nexxxt to each other
+---
 
+## Flexbox Example #2
+
+block all stacked horizontally - aligned to the start of the component
+(they sit next to each other)
+
+```HTML
 <div class="flex">
     <div class="bg-red-500 h-4 w-6"></div>
     <div class="bg-blue-500 h-8 w-6"></div>
     <div class="bg-gree-500 h-12 w-6"></div>
 </div>
+```
+
+align on X - `item-start` `item-end` `item-center` 
+
+align on Y - `justify-center` 
 
 
-<div class="flex item-center">
-    <div class="bg-red-500 h-4 w-6"></div>
-    <div class="bg-blue-500 h-8 w-6"></div>
-    <div class="bg-gree-500 h-12 w-6"></div>
-</div>
+---
 
-item-start item-end item-center allign on XXX
+## Media Queries & Responsive Design
 
-jjustify-center allign of Y
+media queries in Tailwind?
 
+normally when we're creating mobile designs we'd use media queries in our CSS file to style things differently at different screen sizes.
 
-# responsive classes
+in tailwind we don't have to manually create any media queries at all, we can just prefix our tailwind classes with responsive classes and then that class would only apply to that screen size and up.
 
-media queries?
+now the responsive classes are these right here SM MD LG and XL, so if we prefix a class with SM: it means okay only target things from small screens and up if we prefix it with MD: only target that class from medium-sized
+screens and up now all of these breakpoints that they use are `min-width` which means this is a `mobile first approach` so by default all classes that you apply to an element will apply at all widths including the smallest screen sizes but then when we prefix them with one of these things right here then those classes would only apply for that device width and up
 
-normally when we're
-creating mobile designs we'd use media
-queries in our CSS file to style things
-differently at different screen sizes
-right now intel wind we don't have to
-manually create any media queries at all
-we can just prefix our tailwind classes
-with responsive classes and then that
-class would only apply to that screen
-size and up now the responsive classes
-are these right here SM MD LG and Excel
-so if we prefix a class with SM it means
-okay only target things from small
-screens and up if we prefix it with MD
-only target that class from medium-sized
-screens and up now all of these
-breakpoints that they use are min-width
-which means this is a mobile first
-approach so by default all classes that
-you apply to an element will apply at
-all widths including the smallest screen
-sizes but then when we prefix them with
-one of these things right here then
-those classes would only apply for that
-device width and oh 
+`text-green-500 sm:text-red-500  lg: text-blue-500`
 
+`flex justify-center md:justify-end`
 
-mobile first approach
+---
 
-
-text-green-500 sm:text-red-500  lg: text-blue-500
-
-flex justify-center md:justify-end
-
-
-# cards
+## Cards
 
 custom card component
 
-rounded overflow-hidden shadow-md
+`rounded overflow-hidden shadow-md`
 
-w-full fully contain width of its parent
-objejct-cover # take out image distortion, image zooms in
+`w-full` fully contain width of its parent, no overflow
+`object-cover`  take out image distortion, image zooms in if w changes (tablink)
+
+```HTML
 
 <div class="rounded bg-white border-gray-200 shadow-md overflow-hidden"> 
-            <img src="img/stew.jpg" alt="stew" class="h-32 sm:h-48 w-full object-cover">
-            <div class="m-4">
-              <span class="font-bold">5 Bean Chili Stew</span>
-              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
-            </div>
-          </div>
+    <img src="img/stew.jpg" alt="stew" class="h-32 sm:h-48 w-full object-cover">
+    <div class="m-4">
+        <span class="font-bold">5 Bean Chili Stew</span>
+            <span class="block text-gray-500 text-sm">Recipe by Mario</span>
         </div>
+    </div>
+</div>#
 
+```
 
-# badges
+that is some ugly HTML uh?
 
-bg-secondaty-100 text-secondaty-200 text-xs uppercase font-bold rounded-full
+---
 
+## Badges
 
-position at the top? absolutely
+`bg-secondaty-100 text-secondaty-200 text-xs uppercase font-bold rounded-full`
 
-relarive in parent
-absolute in child
+position at the top? position: absolute
 
+`relative` in parent
+`absolute` in child
+
+```HTML
 <div class="mt-8">
-          <!-- cards go here -->
-          <div class="rounded bg-white border-gray-200 shadow-md overflow-hidden relative"> 
-            <img src="img/stew.jpg" alt="stew" class="h-32 sm:h-48 w-full object-cover">
-            <div class="m-4">
-              <span class="font-bold">5 Bean Chili Stew</span>
-              <span class="block text-gray-500 text-sm">Recipe by Mario</span>
-            </div>
-            <div class="absolute top-0 ml-2 mt-2 p-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full">
-              <span>25 mins</span>
-            </div>
-          </div>
+    <div class="rounded bg-white border-gray-200 shadow-md overflow-hidden relative"> 
+        <img src="img/stew.jpg" alt="stew" class="h-32 sm:h-48 w-full object-cover">
+        <div class="m-4">
+            <span class="font-bold">5 Bean Chili Stew</span>
+            <span class="block text-gray-500 text-sm">Recipe by Mario</span>
         </div>
+        <div class="absolute top-0 ml-2 mt-2 p-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full">
+        <span>25 mins</span>
+        </div>
+    </div>
+</div>
+```
 
+---
 
-# apply directive
+## @apply directive
 
+if we wanted to make multiple cards or multiple budgets, we'd have to use all of these classes on each one we created now imagine as well if we wanted to change the style of a card then we'd have to change it in every place that we have a card and the same would be true for badges, so that's not a great idea and it's also looking a bit messy as well
 
-if we wanted to
-make multiple cards or multiple budgets
-we'd have to use all of these classes on
-each one we created now imagine as well
-if we wanted to change the style of a
-card then we'd have to change it in
-every place that we have a card and the
-same would be true for badges so that's
-not a great idea and it's also looking a
-bit messy as well so instead it would be
-nice if we could extract these different
-classes into an external selector using
-some nifty tailoring syntax and we can
-do
+would be nice if we could extract these different classes into an external selector using some nifty tailoring syntax and we can do.
 
-
-ow anything with a class of card
-is going to look at that and it's going
-to apply all of these classes to it so
-all I need to do now is give this a
-class of card and we have a reusable
-component which we only have to update
-over here and not in every place we
-create a card now that's a bit better
-and it's also much tidier - it becomes
-much more reusable
+so all I need to do now is give this a class of card and we have a reusable component which we only have to update over here and not in every place we create a card now that's a bit better and it's also much tidier - it becomes much more reusable
 
 ```CSS
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
@@ -414,78 +378,97 @@ much more reusable
 .badge{
   @apply absolute top-0 ml-2 p-2 mt-2 bg-secondary-100 text-secondary-200 text-xs uppercase font-bold rounded-full;
 }
-© 2021 GitHub, Inc.
+
 ```
 
-# grids
+<br>
 
-parent grid grid-col-3 gap-10
+so now we can write the components like this
 
-col-span-1
-col-span-2
+```HTML
+<div class="card hover:shadow-lg"> 
 
+    <img src="img/stew.jpg" alt="stew" class="h-32 sm:h-48 w-full object-cover">
+    
+    <div class="m-4">
+        <span class="font-bold">5 Bean Chili Stew</span>
+        <span class="block text-gray-500 text-sm">Recipe by Mario</span>
+    </div>
 
-# buttons
+    <div class="badge">
+        <object data="clock.svg" type="image/svg+xml"></object>
+        <span>25 mins</span>
+    </div>
 
+</div>
+```
+
+---
+
+## Miscellaneous
+
+**grid**
+
+parent
+ `grid grid-col-3 gap-10`
+
+child
+`col-span-1`
+`col-span-2`
+
+<br>
+
+**button**
+
+```CSS
 .btn{
   @apply rounded-full py-2 px-3 uppercase text-xs font-bold tracking-wider cursor-pointer;
 }
+```
 
-# icons
+<br>
 
-tailwind itself doesn't actually come
-with any icons built into it we have to
-use some kind of external library or
-your own SVG's you can use whichever you
-prefer now I'm going to use something
-called hero icons which is really nice
-it gives us all of these different icons
-right here and all we have to do is
-click on one for example and it copies
-the SVG code for that particular icon
-and then our willing to do is come to
-the HTML and if I paste this in now oops
-let me just paste it we can see this
-thing right here this SVG so when we
-clicked on this icon it copied the SVG
-code for us and we've pasted it in right
-here now if I save that and preview we
+**icons**
 
+tailwind itself doesn't actually come with any icons built into it we have to use some kind of external library or your own SVG's you can use whichever you prefer.
 
-# hover effe ts
-only for hovering applyu this
-only for medium sceens and uo apply this
-hover:
+<br>
 
-shadow-inner
+**hover**
 
-div class="flex justify-center md:justify-end">
-        <a href="#" class="btn text-primary border-primary md:border-2 hover:bg-primary hover:text-white">Log in</a>
-        <a href="#" class="btn text-primary ml-2 border-primary md:border-2 hover:bg-primary hover:text-white">Sign up</a>
-      </div>
+`hover:` only for hovering apply this
+`md:` only for medium sceens and up apply this
 
-# responsive nav
+**shadow**
 
-cursor-pointer
-md:hidden
+`shadow-inner`
 
-flex justify-betwee item-center
+```HTML
+<div class="flex justify-center md:justify-end">
+    <a href="#" class="btn text-primary border-primary md:border-2 hover:bg-primary hover:text-white">Log in</a>
+    <a href="#" class="btn text-primary ml-2 border-primary md:border-2 hover:bg-primary hover:text-white">Sign up</a>
+</div>
+```
 
 
-hidden md:block
+**nav**
 
-don't show for small screens
+`cursor-pointer`
+`md:hidden`
 
-# transitions
+`flex justify-between item-center`
 
-from initial to hover state
+<br>
 
-transition wha kin of weasying function dio yu want to use?
+**hidden for small screes**
 
-transition ease-out durration-500
+`hidden md:block`
 
+<br>
 
-transform hover:scale-125 hover:ng-opacity-50  transition ease-out durtation-300
+**transitions**
 
+(from initial to hover state) -  what kind of easing function do yu want to use?
 
-
+`transition ease-out durration-500`
+`transform hover:scale-125 hover:ng-opacity-50 transition ease-out durtation-300`
