@@ -1,8 +1,6 @@
 
 ![0_AVzIJzp8ecO-wfjO](https://user-images.githubusercontent.com/55017307/135221317-95dfa98a-9b3d-4d69-b6b4-e3349d7a8562.jpg)
 
-# What?
-
 tailwind is a massive collection of tiny css utility classes for quickly and consistently building good-looking websites
 
 it is hard to design with CSS, naming your css classes in a sane way is virtually impossible.
