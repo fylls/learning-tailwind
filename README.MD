@@ -23,7 +23,7 @@ but who has time to learn and memorize all these different utility classes where
 
 ---
 
-framework packed with utility classes 
+## framework packed with utility classes 
 
 I guess you could say it's a bit like bootstrap or materialize CSS but it's also very different as well because whereas bootstrap and materialize and all the CSS frameworks give you fully styled components like cards buttons dropdowns and all that kind of just right out-of-the-box, tailwind doesn't do that.
 
